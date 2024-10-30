@@ -23,13 +23,13 @@ class HelloWorldControllerTest {
     void helloWorldEndpointRespondWithTextHelloWorld() {
 
         var response = httpClient.toBlocking().retrieve("/hello");
-        assertEquals("Hello World!!!",response);
+        assertEquals("Hello from service!",response);
     }
     @Test
     void helloWorldEndpointRespondWithStatusCode200(){
         var response = httpClient.toBlocking().exchange("/hello",String.class);
         assertEquals(HttpStatus.OK,response.getStatus());
-        assertEquals("Hello World!!!",response.getBody().get());
+        assertEquals("Hello from service!",response.getBody().get());
     }
 
 }
